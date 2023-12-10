@@ -1,0 +1,8 @@
+.proficiencyContainer p {
+  text-align: start;
+  display: flex;
+  justify-content: space-between;
+}
+.label {
+  display: inline;
+}

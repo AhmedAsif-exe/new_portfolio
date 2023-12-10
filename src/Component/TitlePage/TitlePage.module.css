@@ -1,6 +1,6 @@
 .body {
   height: 100vh;
-  background-image: url("../Utils/Images/coverImage.jpg");
+  background-image: url("../../Utils/Images/coverImage.jpg");
 
   background-size: cover; /* or contain */
   background-repeat: no-repeat;
