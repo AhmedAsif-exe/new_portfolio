@@ -9,7 +9,6 @@ const AboutUs = () => {
       <div>
         <img src={Me} alt="My photo" />
       </div>
-
       <Stats />
     </section>
   );
