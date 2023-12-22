@@ -1,8 +1,9 @@
 import classes from "./Skills.module.css";
+import { forwardRef } from "react";
 import { otherStuff, techIcons } from "../../Utils/DataFile";
-const Skills = () => {
+const Skills = forwardRef<HTMLElement>((_, ref) => {
   return (
-    <section className={classes["skills"]}>
+    <section className={classes["skills"]} id="Skills" ref={ref}>
       <h2>My Trade</h2>
       {
         <div>
@@ -21,5 +22,5 @@ const Skills = () => {
       }
     </section>
   );
-};
+});
 export default Skills;

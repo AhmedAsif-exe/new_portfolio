@@ -6,7 +6,7 @@ const Stats = () => {
     <div className={classes.body}>
       <h2>My Skills</h2>
       {Skills.map((skill) => (
-        <Progress {...skill} />
+        <Progress {...skill} key={skill.name} />
       ))}
     </div>
   );

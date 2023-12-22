@@ -1,0 +1,18 @@
+.body {
+  padding: 0px 10%;
+  background-color: #e4e4e4;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 500px;
+}
+.body h2 {
+  font-weight: 300;
+  font-family: "Montserrat", sans-serif;
+  font-size: 40px;
+  margin: 20px;
+}
+.body > div {
+  width: 100%;
+  margin: 0 auto;
+}

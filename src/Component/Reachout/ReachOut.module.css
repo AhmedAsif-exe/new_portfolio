@@ -1,0 +1,21 @@
+.modal {
+  padding: 5% 0;
+}
+.modal > h2 {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 600;
+  margin-top: 0;
+}
+
+.modal > div {
+  display: flex;
+  justify-content: space-around;
+}
+.modal > div > a {
+  all: unset;
+}
+.modal > div > a > img {
+  width: 170px;
+  height: 170px;
+}
