@@ -15,17 +15,18 @@ import { Carousel, Embla, useAnimationOffsetEffect } from "@mantine/carousel";
 
 interface Props {
   name: string;
-  src: string[];
+  src: { asset: { url: string } }[];
   description: string;
   link: string | null;
-  badges: { label: string }[];
+  badges: string[];
   github: string | null;
 }
 export function BadgeCard(props: Props) {
   const { name, src, description, link, badges, github } = props;
+
   const features = badges.map((badge) => (
-    <Badge variant="white" key={badge.label}>
-      {badge.label}
+    <Badge variant="white" key={badge}>
+      {badge}
     </Badge>
   ));
   const [opened, { open, close }] = useDisclosure(false);
@@ -50,8 +51,13 @@ export function BadgeCard(props: Props) {
           withControls={false}
         >
           {src.map((link) => (
-            <Carousel.Slide key={name}>
-              <Image src={link} alt={name} key={link} />
+            <Carousel.Slide key={link.asset.url}>
+              <Image
+                src={link.asset.url}
+                alt={name}
+                key={link.asset.url}
+                loading="lazy"
+              />
             </Carousel.Slide>
           ))}
         </Carousel>
@@ -64,7 +70,7 @@ export function BadgeCard(props: Props) {
             </Text>
             <button className={classes.button} onClick={open}>
               <Image
-                src={src[0]}
+                src={src[0].asset.url}
                 alt={name}
                 height={100}
                 w="auto"

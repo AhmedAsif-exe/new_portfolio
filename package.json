@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.8.8",
     "@mantine/carousel": "^7.3.2",
     "@mantine/core": "^7.3.1",
     "@mantine/hooks": "^7.3.1",
@@ -13,6 +14,7 @@
     "@types/node": "^16.18.68",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
+    "graphql": "^16.8.1",
     "react": "^18.2.0",
     "react-burger-menu": "^3.0.9",
     "react-dom": "^18.2.0",

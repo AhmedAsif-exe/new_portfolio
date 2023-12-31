@@ -9,7 +9,7 @@ const AboutUs = forwardRef<HTMLElement>((_, ref) => {
     <section className={classes.body} ref={ref}>
       <Description />
       <div>
-        <img src={Me} alt="My photo" />
+        <img loading="lazy" src={Me} alt="My photo" />
         <p>M.Ahmed Asif</p>
       </div>
       <Stats />

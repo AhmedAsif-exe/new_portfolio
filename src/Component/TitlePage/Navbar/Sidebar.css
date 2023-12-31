@@ -60,13 +60,18 @@
 /* Individual item */
 .bm-item {
   display: inline-block;
+  color: rgb(4, 87, 181);
+  margin-bottom: 50px;
 }
-
+.bm-item:hover {
+  color: rgb(0, 70, 150);
+  cursor: pointer;
+}
 /* Styling of overlay */
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
 }
-
+/* 
 .menu-item {
   color: rgb(4, 87, 181);
   margin-bottom: 50px;
@@ -74,4 +79,5 @@
 
 .menu-item:hover {
   color: rgb(0, 70, 150);
-}
+  cursor: pointer;
+} */

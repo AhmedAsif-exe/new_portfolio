@@ -6,13 +6,22 @@ import reportWebVitals from "./reportWebVitals";
 import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 import "@mantine/carousel/styles.css";
+
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+const client = new ApolloClient({
+  uri: "https://zg1yzeqp.api.sanity.io/v2023-08-01/graphql/production/default",
+  cache: new InMemoryCache(),
+});
 root.render(
   <React.StrictMode>
     <MantineProvider>
-      <App />
+      <ApolloProvider client={client}>
+        <App />
+      </ApolloProvider>
     </MantineProvider>
   </React.StrictMode>
 );

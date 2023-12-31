@@ -21,10 +21,10 @@ const ReachOut: FC<Props> = (props) => {
         <h2>You Can Check Out My</h2>
         <div>
           <a href="https://github.com/AhmedAsif-exe">
-            <img src={Github} alt="github" />
+            <img loading="lazy" src={Github} alt="github" />
           </a>
           <a href="https://www.upwork.com/freelancers/~015e2428196ca409b4">
-            <img src={UpWork} alt="upwork" />
+            <img loading="lazy" src={UpWork} alt="upwork" />
           </a>
         </div>
       </div>
