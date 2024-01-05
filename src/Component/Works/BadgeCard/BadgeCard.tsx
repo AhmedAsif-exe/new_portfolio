@@ -10,9 +10,10 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import classes from "./BadgeCard.module.css";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Carousel, Embla, useAnimationOffsetEffect } from "@mantine/carousel";
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css"
 interface Props {
   name: string;
   src: { asset: { url: string } }[];
@@ -43,6 +44,7 @@ export function BadgeCard(props: Props) {
         withCloseButton={false}
         size="xl"
         padding={0}
+        id="modal"
       >
         <Carousel
           loop
@@ -52,11 +54,14 @@ export function BadgeCard(props: Props) {
         >
           {src.map((link) => (
             <Carousel.Slide key={link.asset.url}>
-              <Image
+              <LazyLoadImage
                 src={link.asset.url}
                 alt={name}
                 key={link.asset.url}
-                loading="lazy"
+                effect="blur"
+                height={"100%"}
+                width={"100%"}
+              
               />
             </Carousel.Slide>
           ))}
@@ -69,12 +74,12 @@ export function BadgeCard(props: Props) {
               {name}
             </Text>
             <button className={classes.button} onClick={open}>
-              <Image
+              <LazyLoadImage
                 src={src[0].asset.url}
                 alt={name}
                 height={100}
-                w="auto"
-                fit="contain"
+                width="auto"
+                effect="blur"
               />
             </button>
           </Group>

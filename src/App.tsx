@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <TitlePage AboutUs={AboutUsRef} Skills={SkillsRef} Works={WorksRef} />
-      <AboutUs ref={AboutUsRef} />
+      <AboutUs ref={AboutUsRef} Works={WorksRef}/>
       <Skills ref={SkillsRef} />
       <Works ref={WorksRef} />
       <Footer />

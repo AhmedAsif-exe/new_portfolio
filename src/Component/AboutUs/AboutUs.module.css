@@ -8,10 +8,12 @@
   flex: 1;
   height: 400px;
   display: flex;
-  justify-content: center;
   flex-direction: column;
 }
-.body > div > img {
+.body > div > span {
+  margin: auto;
+}
+.body > div > span > img {
   max-width: 80%;
   height: 80%;
   border-radius: 50%;

@@ -7,7 +7,7 @@ import { GET_WORKS } from "../../Utils/Query/getWork"; // Replace with the actua
 import { Loader } from "@mantine/core";
 
 interface workType {
-  key: string;
+  _id: string;
   name: string;
   src: { asset: { url: string } }[];
   description: string;
@@ -18,7 +18,7 @@ interface workType {
 const Works = forwardRef<HTMLElement>((_, ref) => {
   const { loading, error, data } = useQuery(GET_WORKS);
 
-  const works = data?.allWorks.map((work: any) => {
+  const works = data?.allWorks.map((work: workType) => {
     return {
       key: work._id,
       name: work.name,

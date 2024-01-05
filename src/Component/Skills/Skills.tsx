@@ -4,6 +4,17 @@ import { otherStuff } from "../../Utils/DataFile";
 import { GET_TechIcons } from "../../Utils/Query/getTechIcons";
 import { Loader } from "@mantine/core";
 import { useQuery } from "@apollo/client";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css"
+interface TechIconItem {
+  _id: string;
+  name: string;
+  icon: {
+    asset: {
+      url: string;
+    };
+  };
+}
 const Skills = forwardRef<HTMLElement>((_, ref) => {
   const { loading, error, data } = useQuery(GET_TechIcons);
   let output;
@@ -15,13 +26,8 @@ const Skills = forwardRef<HTMLElement>((_, ref) => {
         <h2>My Trade</h2>
         {
           <div>
-            {data.allTechIcon.map((item: any) => (
-              <img
-                loading="lazy"
-                src={item.icon.asset.url}
-                key={item._id}
-                alt={item.name}
-              />
+            {data.allTechIcon.map((item: TechIconItem) => (
+              <LazyLoadImage alt={item.name} key={item._id} src={item.icon.asset.url} effect="blur"/>
             ))}
           </div>
         }
@@ -29,7 +35,9 @@ const Skills = forwardRef<HTMLElement>((_, ref) => {
         {
           <div>
             {otherStuff.map((item, index) => (
-              <p key={index}>{item}</p>
+              <p key={index} className={classes.items}>
+                {item}
+              </p>
             ))}
           </div>
         }
