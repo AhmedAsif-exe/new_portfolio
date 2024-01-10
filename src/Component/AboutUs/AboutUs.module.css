@@ -12,9 +12,7 @@
   flex-direction: column;
   justify-content: center;
 }
-.body > div > span {
-  height: fit-content;
-}
+
 .body > div > span > img {
   object-fit: cover;
   max-width: 90%;

@@ -55,12 +55,12 @@ const AboutUs = forwardRef<HTMLElement, Props>(({ Works }, ref) => {
           clickHandler={clickHandler}
         />
 
-        <div>
+        <div className={classes.lazyImage}>
           <LazyLoadImage
             src={info?.image}
             effect="blur"
+            height={"auto"}
             width={"100%"}
-            className={classes.lazyImage}
           />
           <p>M.Ahmed Asif</p>
         </div>

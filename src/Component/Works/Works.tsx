@@ -39,7 +39,6 @@ const Works = forwardRef<HTMLElement>((_, ref) => {
       badges: work.badges,
     };
   });
-  console.log((width * 3) / 5);
   let output;
   if (loading) output = <Loader color="gray" size="lg" type="dots" />;
   if (error) output = <Error message={error.message} />;
