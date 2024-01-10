@@ -22,20 +22,13 @@
   font-size: var(--mantine-font-size-xs);
   font-weight: 700;
 }
-@media (max-width: 600px) {
-  .card {
-    width: 90%;
-  }
-}
+
 .button {
   all: unset;
 }
 @media (max-width: 400px) {
   .description {
     font-size: 8px;
-  }
-  .card {
-    width: 90%;
   }
   .title,
   .button {

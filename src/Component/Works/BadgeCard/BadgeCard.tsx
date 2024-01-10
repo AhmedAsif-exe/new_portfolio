@@ -85,9 +85,7 @@ export function BadgeCard(props: Props) {
           </Group>
 
           <Text fz="sm" c="white" ta="left" className={classes.description}>
-            {/* <Spoiler maxHeight={60} showLabel="Show more" hideLabel="Hide"> */}
             {description}
-            {/* </Spoiler> */}
           </Text>
         </Card.Section>
 
