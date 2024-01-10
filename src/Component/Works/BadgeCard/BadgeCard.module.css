@@ -1,10 +1,6 @@
 .card {
-  background-color: light-dark(
-    var(--mantine-color-white),
-    var(--mantine-color-dark-7)
-  );
-
   min-height: fit-content;
+  transition: background-color 300ms ease-in;
 }
 
 .section {

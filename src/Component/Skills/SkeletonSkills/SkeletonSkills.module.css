@@ -1,0 +1,15 @@
+.tech-skeleton {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.others {
+  margin: 20px 0;
+  width: 100%;
+}
+.others > div {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding: 0 20px;
+}

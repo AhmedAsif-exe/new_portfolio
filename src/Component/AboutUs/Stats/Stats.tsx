@@ -1,8 +1,9 @@
+import "react-loading-skeleton/dist/skeleton.css";
 import classes from "./Stats.module.css";
 import Progress from "./Progress/Progress";
 import { FC } from "react";
 interface Props {
-  skills: Skill[];
+  skills: Skill[] | null;
 }
 
 interface Skill {
@@ -16,7 +17,7 @@ const Stats: FC<Props> = (props) => {
     <div className={classes.body}>
       <h2>My Skills</h2>
       <div>
-        {skills.map((skill) => (
+        {skills?.map((skill) => (
           <Progress {...skill} key={skill.name} />
         ))}
       </div>

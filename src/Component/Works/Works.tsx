@@ -1,10 +1,11 @@
 import classes from "./Works.module.css";
-import { BadgeCard } from "./BadgeCard/BadgeCard";
 import { Carousel } from "react-responsive-3d-carousel";
-import { forwardRef } from "react";
+import { forwardRef, useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
-import { GET_WORKS } from "../../Utils/Query/getWork"; // Replace with the actual path
+import { GET_WORKS } from "../../Utils/Query/getWork";
 import { Loader } from "@mantine/core";
+import Display from "./Display/Display";
+import Error from "../../Utils/Error/Error";
 
 interface workType {
   _id: string;
@@ -17,7 +18,16 @@ interface workType {
 }
 const Works = forwardRef<HTMLElement>((_, ref) => {
   const { loading, error, data } = useQuery(GET_WORKS);
+  const [width, setWidth] = useState(500);
+  useEffect(() => {
+    const makeWidth = () => {
+      if (window.innerWidth <= 520)
+        setWidth(Math.max(window.innerWidth - 20, 0));
+    };
 
+    makeWidth();
+    window.addEventListener("resize", makeWidth);
+  }, []);
   const works = data?.allWorks.map((work: workType) => {
     return {
       key: work._id,
@@ -29,21 +39,23 @@ const Works = forwardRef<HTMLElement>((_, ref) => {
       badges: work.badges,
     };
   });
+  console.log((width * 3) / 5);
   let output;
   if (loading) output = <Loader color="gray" size="lg" type="dots" />;
-  if (error) output = <p>Error: {error.message}</p>;
+  if (error) output = <Error message={error.message} />;
   if (!error && !loading) {
     output = (
       <>
         <h2>My Works</h2>
         <Carousel
           interval={5000}
-          height="320px"
           showIndicators={false}
           showStatus={false}
+          width={width.toString() + "px"}
+          height={((width * 3) / 5).toString() + "px"}
         >
           {works.map((work: workType) => (
-            <BadgeCard {...work} />
+            <Display {...work} cardWidth={width} />
           ))}
         </Carousel>
       </>

@@ -2,10 +2,11 @@ import classes from "./Skills.module.css";
 import { forwardRef } from "react";
 import { otherStuff } from "../../Utils/DataFile";
 import { GET_TechIcons } from "../../Utils/Query/getTechIcons";
-import { Loader } from "@mantine/core";
 import { useQuery } from "@apollo/client";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css"
+import "react-lazy-load-image-component/src/effects/blur.css";
+import SkeletonSkills from "./SkeletonSkills/SkeletonSkills";
+import Error from "../../Utils/Error/Error";
 interface TechIconItem {
   _id: string;
   name: string;
@@ -18,8 +19,8 @@ interface TechIconItem {
 const Skills = forwardRef<HTMLElement>((_, ref) => {
   const { loading, error, data } = useQuery(GET_TechIcons);
   let output;
-  if (loading) output = <Loader color="gray" size="lg" type="dots" />;
-  if (error) output = <p>Error: {error.message}</p>;
+  if (loading) output = <SkeletonSkills />;
+  if (error) output = <Error message={error.message} />;
   if (!error && !loading) {
     output = (
       <>
@@ -27,7 +28,14 @@ const Skills = forwardRef<HTMLElement>((_, ref) => {
         {
           <div>
             {data.allTechIcon.map((item: TechIconItem) => (
-              <LazyLoadImage alt={item.name} key={item._id} src={item.icon.asset.url} effect="blur"/>
+              <LazyLoadImage
+                alt={item.name}
+                key={item._id}
+                src={item.icon.asset.url}
+                effect="blur"
+                height={100}
+                width={100}
+              />
             ))}
           </div>
         }

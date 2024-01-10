@@ -1,19 +1,10 @@
-import {
-  Card,
-  Image,
-  Text,
-  Group,
-  Badge,
-  Button,
-  Spoiler,
-  Modal,
-} from "@mantine/core";
+import { Card, Text, Group, Badge, Button, Modal } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import classes from "./BadgeCard.module.css";
-import { useState,useEffect } from "react";
+import { useState } from "react";
 import { Carousel, Embla, useAnimationOffsetEffect } from "@mantine/carousel";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css"
+import "react-lazy-load-image-component/src/effects/blur.css";
 interface Props {
   name: string;
   src: { asset: { url: string } }[];
@@ -21,12 +12,13 @@ interface Props {
   link: string | null;
   badges: string[];
   github: string | null;
+  data: string | undefined;
 }
 export function BadgeCard(props: Props) {
-  const { name, src, description, link, badges, github } = props;
+  const { name, src, description, link, badges, github, data } = props;
 
   const features = badges.map((badge) => (
-    <Badge variant="white" key={badge}>
+    <Badge color={data || "black"} key={badge} variant="white">
       {badge}
     </Badge>
   ));
@@ -61,13 +53,21 @@ export function BadgeCard(props: Props) {
                 effect="blur"
                 height={"100%"}
                 width={"100%"}
-              
               />
             </Carousel.Slide>
           ))}
         </Carousel>
       </Modal>
-      <Card radius={0} p="md" className={classes.card} bg="#333434">
+      <Card
+        radius={0}
+        p="md"
+        className={classes.card}
+        style={{
+          background: data
+            ? `linear-gradient(0deg, ${data} 0%, rgb(0,0,0) 100%)`
+            : "#333434",
+        }}
+      >
         <Card.Section className={classes.section} p={15}>
           <Group justify="space-evenly">
             <Text fz="xl" fw={500} c="white" className={classes["title"]}>
@@ -85,19 +85,17 @@ export function BadgeCard(props: Props) {
           </Group>
 
           <Text fz="sm" c="white" ta="left" className={classes.description}>
-            <Spoiler maxHeight={60} showLabel="Show more" hideLabel="Hide">
-              {description}
-            </Spoiler>
+            {/* <Spoiler maxHeight={60} showLabel="Show more" hideLabel="Hide"> */}
+            {description}
+            {/* </Spoiler> */}
           </Text>
         </Card.Section>
 
-        {window.innerWidth > 600 && (
-          <Card.Section className={classes.section}>
-            <Group gap={7} mt={2} mx="auto" px={16}>
-              {features}
-            </Group>
-          </Card.Section>
-        )}
+        <Card.Section className={classes.section}>
+          <Group gap={7} mt={2} mx="auto" px={16}>
+            {features}
+          </Group>
+        </Card.Section>
 
         <Group mt="xs">
           {link && (

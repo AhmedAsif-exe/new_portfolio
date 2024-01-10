@@ -54,3 +54,29 @@
   width: 170px;
   height: 170px;
 }
+@media screen and (max-width: 800px) {
+  .content h1 {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .content h1 {
+    font-size: 30px;
+  }
+  .content p {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .content h1 {
+    font-size: 25px;
+  }
+  .content p {
+    font-size: 16px;
+  }
+  .content button {
+    padding: 10px 20px;
+    font-size: 20px;
+  }
+}

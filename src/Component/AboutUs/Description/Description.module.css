@@ -1,10 +1,11 @@
 .description h2 {
   font-weight: 400;
+  margin-top: 0;
 }
 .description {
   text-align: start;
   height: fit-content;
-  padding: 0 20px;
+  padding: auto;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -23,17 +24,18 @@
   background-color: rgb(4, 87, 181);
 }
 .content p {
-  margin: 0;
+  margin: 10px 0;
   line-height: 150%;
-  margin-bottom: 5px;
-  overflow: auto;
+  color: rgb(93, 94, 95);
 }
 .content {
-  margin: 20px 0;
-  margin-right: 10px;
   height: 70%;
-  overflow: auto;
 }
 .description {
   flex: 1;
+}
+@media screen and (max-width: 1146px) {
+  .description h2 {
+    margin: 0;
+  }
 }

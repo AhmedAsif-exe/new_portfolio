@@ -1,11 +1,12 @@
 import { FC } from "react";
 import classes from "./Description.module.css";
+import "react-loading-skeleton/dist/skeleton.css";
 interface Props {
   description: string[];
-  clickHandler: ()=>void;
+  clickHandler: () => void;
 }
 const Description: FC<Props> = (props) => {
-  const { description,clickHandler } = props;
+  const { description, clickHandler } = props;
   return (
     <div className={classes.description}>
       <h2>About Me</h2>
