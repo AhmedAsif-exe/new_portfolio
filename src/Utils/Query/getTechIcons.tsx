@@ -6,7 +6,7 @@ export const GET_TechIcons = gql`
     allTechIcon(where: {}) {
       _id
       name
-      icon {
+      image {
         asset {
           url
         }

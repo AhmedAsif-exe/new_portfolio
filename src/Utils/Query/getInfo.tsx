@@ -3,11 +3,10 @@ import { gql } from "@apollo/client";
 
 export const GET_Info = gql`
   query GetInfo {
-    allAboutme(where: {}) {
+    allAboutMe(where: {}) {
       _id
-      personalInfo {
-        description
-      }
+      description
+
       image {
         asset {
           url

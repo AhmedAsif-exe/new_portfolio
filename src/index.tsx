@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 const client = new ApolloClient({
-  uri: "https://zg1yzeqp.api.sanity.io/v2023-08-01/graphql/production/default",
+  uri: "https://btx1qy24.api.sanity.io/v2023-08-01/graphql/production/default",
   cache: new InMemoryCache(),
 });
 root.render(

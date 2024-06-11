@@ -11,9 +11,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 import Error from "../../Utils/Error/Error";
 interface AboutMeItem {
   _id: string;
-  personalInfo: {
-    description: string[];
-  };
+  description: string[];
   image: {
     asset: {
       url: string;
@@ -38,12 +36,12 @@ const AboutUs = forwardRef<HTMLElement, Props>(({ Works }, ref) => {
   const extractData = (data: AboutMeItem) => {
     return {
       key: data?._id,
-      description: data?.personalInfo.description,
+      description: data?.description,
       image: data?.image.asset.url,
       skills: data?.skills,
     };
   };
-  const info = extractData(data?.allAboutme[0]);
+  const info = extractData(data?.allAboutMe[0]);
   let output;
   if (loading) output = <SkeletonAboutUs />;
   if (error) output = <Error message={error.message} />;

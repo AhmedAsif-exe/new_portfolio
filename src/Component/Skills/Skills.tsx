@@ -10,7 +10,7 @@ import Error from "../../Utils/Error/Error";
 interface TechIconItem {
   _id: string;
   name: string;
-  icon: {
+  image: {
     asset: {
       url: string;
     };
@@ -31,7 +31,7 @@ const Skills = forwardRef<HTMLElement>((_, ref) => {
               <LazyLoadImage
                 alt={item.name}
                 key={item._id}
-                src={item.icon.asset.url}
+                src={item.image.asset.url}
                 effect="blur"
                 height={100}
                 width={100}

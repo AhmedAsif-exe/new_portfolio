@@ -44,8 +44,8 @@ export function BadgeCard(props: Props) {
           height="100%"
           withControls={false}
         >
-          {src.map((link) => (
-            <Carousel.Slide key={link.asset.url}>
+          {src.map((link, index) => (
+            <Carousel.Slide key={index}>
               <LazyLoadImage
                 src={link.asset.url}
                 alt={name}
